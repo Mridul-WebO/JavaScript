@@ -7,49 +7,10 @@
     <style></style>
   </head>
   <body>
-    <!-- <div class="container"></div> -->
+    <!-- <input id="id1" type="email" min="100" max="300" required />
+    <div id="errMessage"></div> -->
+    <button onclick="getData()">OK</button>
 
-    <button>hey</button>
-
-    <script>
-      //   let userName;
-      //   let btn = document.quer
-
-      //   do {
-      //     userName = prompt("Enter your name");
-      //   } while (!userName);
-
-      const obj = [
-        { name: "shivv", marks: 50 },
-        { name: "ami", marks: 30 },
-        { name: "neil", marks: 40 },
-        { name: "feil", marks: 40 },
-        { name: "zeil", marks: 40 },
-      ];
-
-      const res = obj.reduce((acc, { name, marks }, index) => {
-        acc[index] = { [name]: marks };
-        return acc;
-      }, {});
-      console.log(res);
-
-      //   let news = obj.sort((a, b) => {
-      //     // return a.marks - b.marks;
-      //     if (a.name < b.name) {
-      //       return -1;
-      //     }
-      //     if (a.name > b.name) {
-      //       return 1;
-      //     }
-      //     return 0;
-      //   });
-      //   console.log(news);
-
-      //   const res = obj.reduce((acc, current) => {
-
-      //     return acc;
-      //   });
-      //   console.log(res);
-    </script>
+    <script src="AJAX.js"></script>
   </body>
 </html>
