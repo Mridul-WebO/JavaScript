@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name Change Example</title>
+    <style>
+      :root {
+        --dim: 500px;
+      }
+      * {
+        margin: 0%;
+        padding: 0%;
+      }
+      .container {
+        margin-top: 10px;
+        margin: 10px;
+        /* border: 2px solid red; */
+        width: var(--dim);
+        height: var(--dim);
+        background-color: red;
+        /* padding: 50%; */
+        position: relative;
+      }
+      .box {
+        border-radius: 50%;
+        background-color: yellow;
+        width: calc(var(--dim) / 10);
+        height: calc(var(--dim) / 10);
+        /* transform: translate(150%, 150%); */
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* transform: translate(-50%, -50%);
+        transform: rotate(45deg); */
+        /* transform-origin: 50% -50%; */
+
+        /* transform: matrix(1, 0, 0, 1, 0, 0); */
+
+        /* top: 0px;
+        right: 10px; */
+        /* bottom: 100px; */
+        /* left: 450px; */
+        /* 
+        top: calc(var(--dim) - 50px);
+        left: calc(var(--dim) - 50px); */
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="play()">play</button>
+    <div class="container">
+      <div class="box"></div>
+    </div>
+
+    <script>
+      let container = document.getElementsByClassName("container")[0];
+
+      let box = document.getElementsByClassName("box")[0];
+
+      console.log(container.offsetWidth);
+      // box.style.backgroundColor = "";
+
+      function play() {
+        let ele = document.getElementsByClassName("box")[0];
+
+        let x = 0;
+        // y = 0;
+
+        let a = setInterval(frame1, 5);
+
+        function frame1() {
+          console.log("flag1", x);
+          if (x >= 450) {
+            console.log("flag2", x);
+            frame2();
+            clearInterval(a);
+          } else {
+            console.log("flag3", x);
+            x++;
+
+            ele.style.top = x + "px";
+            ele.style.left = x + "px";
+          }
+        }
+
+        function frame2() {
+          let b = setInterval(frame3, 5);
+
+          function frame3() {
+            if (x == 0) {
+              console.log("stopped", x);
+              frame4();
+              clearInterval(b);
+            } else {
+              console.log("runned", x);
+              x--;
+              // ele.style.left = x + "px";
+              ele.style.left = x + "px";
+            }
+          }
+        }
+
+        function frame4() {
+          let c = setInterval(frame5, 5);
+          x = 450;
+
+          function frame5() {
+            if (x == 0) {
+              console.log("stoppednew", x);
+              frame6();
+              // play();
+              clearInterval(c);
+            } else {
+              console.log("runnednew", x);
+              x--;
+              // ele.style.left = x + "px";
+              ele.style.top = x + "px";
+            }
+          }
+        }
+
+        function frame6() {
+          let c = setInterval(frame7, 5);
+          // x = 450;
+
+          function frame7() {
+            if (x == 450) {
+              console.log("stoppednew", x);
+              frame8();
+              clearInterval(c);
+            } else {
+              console.log("runnednew", x);
+              x++;
+              // ele.style.left = x + "px";
+              ele.style.top = x + "px";
+              ele.style.left = x + "px";
+            }
+          }
+        }
+
+        function frame8() {
+          let c = setInterval(frame9, 5);
+          // x = 450;
+
+          function frame9() {
+            if (x == 0) {
+              console.log("stoppednew", x);
+              frame10();
+              clearInterval(c);
+            } else {
+              console.log("runnednew", x);
+              x--;
+              // ele.style.left = x + "px";
+              // ele.style.top = x + "px";
+              ele.style.top = x + "px";
+            }
+          }
+        }
+
+        function frame10() {
+          let c = setInterval(frame11, 5);
+          x = 450;
+
+          function frame11() {
+            if (x == 0) {
+              console.log("stoppednew", x);
+              play();
+              clearInterval(c);
+            } else {
+              console.log("runnednew", x);
+              x--;
+              // ele.style.left = x + "px";
+              // ele.style.top = x + "px";
+              ele.style.left = x + "px";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
